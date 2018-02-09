@@ -16,7 +16,30 @@ program
     .alias('i')
     .action(() => {
         require('../command/init')()
-    })
+    });
+
+program
+    .command('add-page')
+    .description('Add a new page')
+    .alias('ap')
+    .action(() => {
+        require('../command/addPage')();
+    });
+
+program
+    .command('upgrade')
+    .description('Upgrade to new version')
+    .action(() => {
+      require('../command/upgrade')();
+    });
+
+program
+    .command('update')
+    .description('Update npm packages')
+    .alias('up')
+    .action(() => {
+      require('../command/update')('update');
+    });
 
 program.parse(process.argv)
     

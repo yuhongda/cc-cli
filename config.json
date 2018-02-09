@@ -1,6 +1,10 @@
 {
-    "cc": {
-        "url": "https://github.com/yuhongda/creative-center.git",
+    "vue": {
+        "url": "https://github.com/yuhongda/cc-template.git",
+        "branch": "master"
+    },
+    "jquery": {
+        "url": "https://github.com/yuhongda/cc-template-jquery.git",
         "branch": "master"
     }
 }
