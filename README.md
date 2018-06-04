@@ -17,7 +17,7 @@ Usage
 
 ```javascript
 
-cc init
+cc-cli init
 
 ```
 
