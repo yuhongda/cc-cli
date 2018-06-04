@@ -3,7 +3,7 @@
   "version": "1.0.10",
   "description": "创新中心项目代码脚手架",
   "bin": {
-    "cc": "bin/cc"
+    "cc-cli": "bin/cc-cli"
   },
   "repository": {
     "type": "git",
