@@ -41,6 +41,13 @@ program
       require('../command/update')('update');
     });
 
+program
+    .command('add <plugin>')
+    .description('add plugin to already created project')
+    .action((plugin) => {
+      require('../command/add')(plugin);
+    });
+
 program.parse(process.argv)
     
 if(!program.args.length){
