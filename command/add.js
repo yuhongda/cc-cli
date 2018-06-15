@@ -26,6 +26,8 @@ async function add (pluginName) {
   //npm install
   execSync(`npm install ${packageName} -D`, { stdio: [0, 1, 2] });
 
+  spinner.stop()
+  
   console.log(chalk.green(`\n √ Completed !`));
   process.exit();
 }
