@@ -48,6 +48,13 @@ program
       require('../command/add')(plugin);
     });
 
+program
+    .command('serve <entry>')
+    .description('quick run a new project')
+    .action(() => {
+        require('../command/serve')(entry)
+    });
+
 program.parse(process.argv)
     
 if(!program.args.length){
