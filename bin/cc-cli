@@ -51,7 +51,7 @@ program
 program
     .command('serve <entry>')
     .description('quick run a new project')
-    .action(() => {
+    .action((entry) => {
         require('../command/serve')(entry)
     });
 
