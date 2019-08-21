@@ -55,6 +55,13 @@ program
         require('../command/serve')(entry)
     });
 
+program
+    .command('build <entry>')
+    .description('quick build a new project')
+    .action((entry) => {
+        require('../command/build')(entry)
+    });
+
 program.parse(process.argv)
     
 if(!program.args.length){
