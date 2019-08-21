@@ -6,5 +6,9 @@
     "jquery": {
         "url": "https://github.com/yuhongda/cc-template-jquery.git",
         "branch": "master"
+    },
+    "react-hooks": {
+        "url": "https://github.com/yuhongda/cc-template-hooks.git",
+        "branch": "master"
     }
 }

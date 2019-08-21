@@ -16,7 +16,8 @@ module.exports = () => {
         message: 'Please select a project template:',
         choices: [
           'cc-template[vue]',
-          'cc-template[jquery]'
+          'cc-template[jquery]',
+          'cc-template[react-hooks]',
         ]
     }])
     .then(answers => {
