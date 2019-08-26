@@ -3,20 +3,29 @@
 const { execSync } = require('child_process');
 const ora = require('ora');
 const chalk = require('chalk');
+const fs = require('fs');
+const { checkPackageJson } = require('./utils');
 
 async function serve (entry) {
 
-  if(!entry){
-    console.log(chalk.red('\n x plugin does not exist!'));
-    process.exit();
+  let _entry = entry;
+
+  if(!_entry){
+    if(fs.existsSync('./index.html')){
+      _entry = 'index.html';
+    }else{
+      console.log(chalk.red('\n x please input entry!'));
+      process.exit();
+    }
   }
 
-  const spinner = ora(`📦  starting ${chalk.cyan(entry)}...`)
+  await checkPackageJson();
+
+  const spinner = ora(`📦  starting ${chalk.cyan(_entry)}...`)
   spinner.start()
 
-
   // run parcel-bundler
-  execSync(`parcel ${entry} --open`, { stdio: [0, 1, 2] });
+  execSync(`parcel ${_entry} --open`, { stdio: [0, 1, 2] });
 
   spinner.stop()
   
@@ -24,4 +33,4 @@ async function serve (entry) {
   process.exit();
 }
 
-module.exports = serve
+module.exports = serve;

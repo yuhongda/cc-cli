@@ -6,6 +6,9 @@ const nj = require('nornj').default;
 const mkdirp = require('mkdirp');
 const _ = require('lodash');
 const path = require('path');
+const chalk = require('chalk');
+const ora = require('ora');
+const { execSync } = require('child_process');
 
 function getTemplatePath(notSourceFile) {
   return getRootPath() + 'templates/' + (notSourceFile ? '' : 'sourceFiles/');
@@ -107,6 +110,20 @@ function getDeps(pkg) {
   return deps;
 }
 
+
+async function checkPackageJson() {
+  try {
+    if (fs.existsSync('./package.json') && !fs.existsSync('./node_modules')) {
+      const spinner = ora(`📦  installing packages...`);
+      spinner.start();
+      await execSync(`npm install`, { stdio: [0, 1, 2] });
+      spinner.stop();
+    }
+  } catch(err) {
+    console.log(chalk.red(`\n x ${err}!`));
+  }
+}
+
 module.exports = {
   getTemplatePath,
   getRootPath,
@@ -114,5 +131,6 @@ module.exports = {
   renderFile,
   renderAppendFile,
   getDeps,
-  replaceFileContent
+  replaceFileContent,
+  checkPackageJson
 };
