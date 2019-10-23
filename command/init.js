@@ -22,7 +22,7 @@ module.exports = () => {
     }])
     .then(answers => {
         co(function *() {
-            let tmplName = /\[(\w+)\]/.exec(answers.tmplName)[1];//yield prompt('Template Name: ');
+            let tmplName = /\[(.+)\]/.exec(answers.tmplName)[1];//yield prompt('Template Name: ');
             let projectName = yield prompt('Project Name: ');
             let gitUrl;
             let branch;
